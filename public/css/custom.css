@@ -1,0 +1,412 @@
+
+
+/************ TABLE OF CONTENTS ***************
+1.  General
+2.  Header
+3.  Section one
+4.  Custom Util Clases
+5.  Choose Your Food
+6.  Order Placed
+7.  Footer
+
+**********************************************/
+
+
+@font-face {
+	font-family: billboard;
+	src: url(../fonts/billboard.ttf);
+}
+
+/*** 
+
+====================================================================
+    General
+====================================================================
+
+***/
+
+body {
+  font-family: "billboard", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+}
+
+a {
+  color: #13214e;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #13214e;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: "billboard", sans-serif;
+  color: #13214e;
+  letter-spacing: .8px;
+  margin: 0 !important;
+}
+
+
+p,span{
+	font-family: "billboard", sans-serif;
+  margin: 0;
+  color: #13214e;
+}
+
+.bg-custom{
+	background-color: #f4b6c1;
+}
+
+input{
+	background-color: transparent !important;
+	border: 3px solid #13214e !important;
+}
+
+input:focus{
+	outline: none !important;
+	box-shadow: none !important;
+}
+
+.column{
+	float: left;
+	width: 80%;
+}
+.column-2{
+	float: right;
+	width: 20%;
+}
+.column-2 h5{
+	float: right;
+}
+
+.line{
+	border-bottom: 1px solid #13214e;
+	width: max-content;
+}
+.line-2{
+	border-bottom: 1px solid #13214e;
+	width: 100%;
+	margin: 0 15px 0 15px;
+}
+button{
+  background-color: #000;
+  color: #fff;
+  border: 3px solid #13214e;
+  border-radius: 5px;
+  letter-spacing: .8px;
+  display: block;
+  margin: 0 auto;
+}
+button i {
+  color: #fff;
+  font-size: 40px;
+}
+
+  .border {
+   border: 4px solid #13214e !important;
+ }
+ .shadow{
+  box-shadow: 3px 4px #e18a99, 3px 4px #e18a99 inset !important;
+}
+.shadow-light{
+  box-shadow: 3px 4px #e18a99, 3px 4px #ebc2ca inset !important;
+}
+.shadow-dark{
+  box-shadow: 3px 4px #e18a99, 3px 4px #000 inset !important;
+}
+
+@media (min-width: 1200px){
+  .padding-custom{
+    padding: 16% !important;
+  } 
+}
+
+@media (max-width: 1199px){
+  .padding-custom{
+    padding: 12% !important;
+  } 
+}
+
+@media (max-width: 992px){
+  .padding-custom{
+    padding: 164px !important;
+  } 
+}
+@media (max-width: 768px){
+  .padding-custom{
+    padding: 15% !important;
+  } 
+  .custom-margin{
+    margin: 50px 0;
+  }
+}
+@media (max-width: 547px){
+  .padding-custom{
+    padding: 15% !important;
+  } 
+  .none{
+    display: none;
+  }
+
+  .one img{
+    width: 50% !important;
+  }
+}
+
+.ltr-spacing{
+  letter-spacing: .5px !important;
+}
+
+@media(min-width: 547px){
+  .none-2{
+    display: none !important;
+  }
+}
+
+button:focus {
+  outline: none;
+}
+/*** 
+
+====================================================================
+    header
+====================================================================
+
+***/
+
+.header{
+	position: relative;
+	z-index: 1;
+}
+
+@media(max-width: 768px){
+  .header{
+    background-color: #f4b6c1;
+  }
+}
+
+
+@media(min-width: 769px){
+  .header-bg-img{
+    background-image:url(../img/header-bg-img.png);
+    background-size:cover;
+    position:relative;
+  }
+}
+
+  .site-logo img{
+   width: 17%;
+ }
+
+ @media (max-width: 547px){
+  .site-logo img {
+    width: 30% !important;
+    display: block;
+    margin: 0 auto;
+  }
+
+}
+.header-right a{
+	float: right;
+	font-size: 25px;
+	padding-right: 25px;
+	text-transform: uppercase;
+}
+
+.time-est{
+  padding: 0 20px;
+  width: max-content;
+  margin: 0 auto;
+}
+.time-est span{
+	font-size: 25px;
+}
+
+/*** 
+
+====================================================================
+   Section-one
+====================================================================
+
+***/
+.one img{
+	width: 30%;
+}
+
+
+
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+/* Rounded tabs */
+
+@media (min-width: 576px) {
+  .rounded-nav {
+    border-radius: 50rem !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .rounded-nav .nav-link {
+    border-radius: 50rem !important;
+  }
+}
+
+/* With arrow tabs */
+
+.with-arrow .nav-link.active {
+  position: relative;
+}
+
+.with-arrow .nav-link.active::after {
+  content: '';
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #13214e;
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
+}
+
+/* lined tabs */
+
+.lined .nav-link {
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+.lined .nav-link:hover {
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+.lined .nav-link.active {
+  background: none;
+  color: #555;
+  border-color: #2b90d9;
+}
+
+.text-uppercase {
+  letter-spacing: 0.1em;
+}
+
+.nav-tabs{
+	border: none;
+}
+
+.tab-pane p{
+  letter-spacing: .8px;
+}
+
+
+/*** 
+
+====================================================================
+   Choose Your Food
+====================================================================
+
+***/
+
+@media(min-width: 1025px){
+
+  .choose-food,
+  .add-drink{
+    padding: 3rem;
+  } 
+
+}
+
+@media (max-width: 1024px){
+  .nav-link {
+    padding: 0.5rem .5rem !important;
+  }
+  ul.nav.nav-tabs.nav-pills li:nth-child(1){
+    margin-right: 8px;
+  }
+
+  ul.nav.nav-tabs.nav-pills li:nth-child(2){
+    margin-right: 8px;
+  }
+}
+
+
+/*** 
+
+====================================================================
+   Order Placed
+====================================================================
+
+***/
+
+.drink img{
+	width: 65%;
+	float: left;
+}
+
+
+.delivery-away img{
+	width: 20%;
+}
+.delivery-away{
+	background-color: #fe879b;
+	padding: 30px 10px 30px 10px;
+  margin: 20px;
+}
+
+.delivery-away img:nth-child(1) {
+	margin-right: 16%;
+}
+
+.delivery-away img:nth-child(3) {
+	margin-left: 16%;
+}
+
+.delivery-away span{
+  font-size: 18px;
+  letter-spacing: 1.5px;
+}
+
+
+
+
+
+/*** 
+
+====================================================================
+   Footer
+====================================================================
+
+***/
+
+.footer{
+  background-color: #fe879b;
+  padding: 20px 40px 0 40px;
+}
+
+
+ul.onepage-pagination{
+  display: none !important;
+}
