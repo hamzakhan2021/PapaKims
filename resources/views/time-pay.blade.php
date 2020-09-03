@@ -45,10 +45,10 @@
               <div class="row mt-4">
                 <div class="col-lg-12">
                   <div class="column">
-                    <h5>1x kimchi noodles</h5>  
+                    <h5>{{$food}}</h5>
                   </div>
                   <div class="column-2">
-                    <h5>5.00</h5>  
+                    <h5>5.00</h5>
                   </div>
                 </div>
               </div>
@@ -88,14 +88,15 @@
             </div>
 
           </div>
-          <div class="line-2"></div>      
+          <div class="line-2"></div>
         </div>
 
         <header class="text-center mt-5 mb-5">
          <h3>please enter</h3>
        </header>
-
-       <form action="#">
+      <div>
+       <form method="POST" action="{{ ('/OrderPlaced') }}">
+        @csrf
          <div class="form-group">
           <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow">
         </div>
@@ -105,7 +106,7 @@
 
         <button type="submit" class="px-5 shadow-dark"> <i class="fab fa-apple-pay"></i></button>
       </form>
-
+</div>
     </div>
   </div>
 </div>

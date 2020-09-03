@@ -12,7 +12,7 @@ class HomeController extends Controller
   public function __construct(Request $request)
   {
       // $this->request      = $request;
-      $this->foodName     = $foodName;
+      $this->foodName     = $request->input('invisible');;
   }
 
     public function index()
@@ -45,6 +45,16 @@ class HomeController extends Controller
       }
     }
 
+    public function storeOrder(Request $request)
+    {
+      $number = $request->input('number');
+      $firstname = $request->input('firstname');
+      //store order in db
+      return View('order-placed');
+    }
+
+
+
     public function getPostalCode(Request $request)
     {
       $postalCode = $request->input('post-code');
@@ -58,8 +68,9 @@ class HomeController extends Controller
       return View('add-drink', compact('foodName'));
     }
 
-    public function redirectPay()
+    public function redirectPay(Request $request)
     {
-      dd($this->foodName);
+      $food   = $request->input('food');
+      return View('time-pay', compact('food'));
     }
 }

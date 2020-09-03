@@ -55,8 +55,9 @@
                   </li>
                 </ul>
                 <div id="myTab2Content" class="tab-content">
-                  <!-- <form method="POST" action="{{ ('/') }}">
-                    @csrf -->
+                  <form method="get" action="{{ ('/summary') }}">
+                    @csrf
+                    <input name="food" type="hidden" value="{{$foodName}}">
                   <div id="home2" role="tabpanel" aria-labelledby="home2-tab" class="tab-pane fade show active px-4 py-3 border shadow mt-5">
                     <p class="leade">{{$foodName}}</p>
                     <p> Nutritional information:</p>
@@ -66,7 +67,7 @@
                     <p>carbs: 100</p>
                      <button type="submit" onclick="window.location='{{ url("/payTime") }}'" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
                   </div>
-                  <!-- </form> -->
+                  </form>
                 </div>
                 <!-- End bordered tabs -->
               </div>

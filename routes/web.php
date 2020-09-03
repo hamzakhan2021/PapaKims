@@ -18,4 +18,5 @@
 Route::get('/', 'HomeController@index');
 Route::post('/p', 'HomeController@getPostalCode');
 Route::post('/cH', 'HomeController@storeFood');
-Route::get('/payTime', 'HomeController@redirectPay');
+Route::get('/summary', 'HomeController@redirectPay');
+Route::post('/OrderPlaced', 'HomeController@storeOrder');
