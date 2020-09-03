@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'HomeController@index');
+Route::post('/p', 'HomeController@getPostalCode');
+Route::post('/cH', 'HomeController@storeFood');
+Route::get('/payTime', 'HomeController@redirectPay');
