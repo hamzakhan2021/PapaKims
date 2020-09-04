@@ -15,6 +15,10 @@ class CreateFoodOrdersTable extends Migration
     {
         Schema::create('food_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('food_item');
+            $table->string('number');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -15,6 +15,9 @@ class CreateFriendsTable extends Migration
     {
         Schema::create('friends', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('number');
+            $table->string('status');
             $table->timestamps();
         });
     }

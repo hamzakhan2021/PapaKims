@@ -98,6 +98,7 @@
        <form method="POST" action="{{ ('/OrderPlaced') }}">
         @csrf
          <div class="form-group">
+          <input name="food" type="hidden" value="{{$food}}">
           <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow">
         </div>
         <div class="form-group">

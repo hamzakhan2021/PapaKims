@@ -19,4 +19,7 @@ Route::get('/', 'HomeController@index');
 Route::post('/p', 'HomeController@getPostalCode');
 Route::post('/cH', 'HomeController@storeFood');
 Route::get('/summary', 'HomeController@redirectPay');
+
 Route::post('/OrderPlaced', 'HomeController@storeOrder');
+Route::post('/inviteFriend', 'HomeController@sendFriend');
+Route::post('/play', 'HomeController@getPlayerNumber');

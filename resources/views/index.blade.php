@@ -33,47 +33,54 @@
       <div class="container-fluid">
         <div class="row pt-3">
           <div class="col-lg-6 col-md-6 none">
-            <div class="site-logo"><a href="index.html"> <img src="img/logo.png" class="img-responsive" alt="Logo Image"></a></div>
-          </div>
-
-           <div class="col-lg-6 col-md-6 none-2">
-            <div class="header-right">
-             <span><a href="#">about us</a></span>
-           </div>
+            <div class="site-logo"><a href="index.html"> <img src="img/logo-2.png" class="img-responsive" alt="Logo Image"></a></div>
           </div>
 
           <div class="col-lg-6 col-md-6 none-2">
-            <div class="site-logo"><a href="index.html"> <img src="img/logo.png" class="img-responsive" alt="Logo Image"></a></div>
-         </div>
-
-
-          <div class="col-lg-6 col-md-6 none">
-           <div class="header-right">
+            <div class="header-right">
              <span><a href="#">about us</a></span>
            </div>
          </div>
 
+         <div class="col-lg-6 col-md-6 none-2">
+          <div class="site-logo"><a href="index.html"> <img src="img/papakimlogo.png" class="img-responsive" alt="Logo Image"></a></div>
+        </div>
+
+
+        <div class="col-lg-6 col-md-6 none">
+         <div class="header-right">
+           <span><a href="#">about us</a></span>
+         </div>
        </div>
+
      </div>
    </div>
+ </div>
 
-   <section class="bg-center bg-custom">
-     <div class="d-flex h-100 align-items-center">
-      <div class="container custom-margin text-center">
-        <div class="row justify-content-center">
-         <div class="col-lg-4">
-          <p class="mb-1">we are open In!</p>
-          <div class="time-est border shadow">
-           <h1>1<span> HR</span> 53<span> Mins</span></h1>
-         </div>
+ <section class="bg-center">
+   <div class="d-flex h-100 align-items-center">
+    <div class="container custom-margin text-center">
+      <div class="row justify-content-center">
+       <div class="col-lg-4">
+        <p class="mb-1">we are open In!</p>
+        <div class="time-est border shadow" id="demo">
+<!--          <h1>1<span> HR</span> 53<span> Mins</span></h1>
+ -->       </div>
 
-         <h4 class="mt-2 mb-2">in the meantime...</h4>
+       <h4 class="mt-2 mb-2">in the meantime...</h4>
 
-         <div class="header-bg-img border shadow-light">
-          <div class="padding-custom">
-           <h4>enter phone <br> number to play</h4>
-           <h5>(so you know if <br> you've won)</h5>
-           <input type="text" name="phone_number" class="custom-border">
+       <div class="border shadow">
+        <div class="padding-custom">
+         <h4>enter phone <br> number to play</h4>
+         <h5>(so you know if <br> you've won)</h5>
+         <!-- method="POST" action="{{ ('/play') }}" -->
+         <form >
+           @csrf
+           <div class="form-group">
+            <input type="text" name="phone_number" class="custom-border form-control">
+           </div>
+           <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Enter</button>
+         </form>
          </div>
        </div>
 
@@ -91,6 +98,74 @@
 <script src="vendor/onepage-scroll/jquery.onepage-scroll.min.js"></script>
 <script src="vendor/lightbox2/js/lightbox.min.js"></script>
 <script src="js/front.js"></script>
+<!-- Display the countdown timer in an element -->
+
+
+
+
+
+<script>
+const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var days = [3, 4, 5, 6, 0];
+var hours = [17, 18, 19, 20];
+
+var countDownDate = new Date();
+if(days.indexOf(countDownDate.getDay()) != -1){	//if today is opening day
+	if(hours.indexOf(countDownDate.getHours()) > 20){	//if opening time has passed
+		while(days.indexOf(countDownDate.getDay()) == -1){	countDownDate.setDate(countDownDate.getDate() + 1);	}
+	}
+}else{
+	while(days.indexOf(countDownDate.getDay()) == -1){	countDownDate.setDate(countDownDate.getDate() + 1);	}
+}
+countDownDate.setHours(17, 00, 00, 00);
+console.log("countDownDate: " + countDownDate);
+console.log("day: " + countDownDate.getDay());
+console.log("index of day: " + days.indexOf(countDownDate.getDay()));
+
+// Get today's date and time
+
+//var now_date = new Date();
+var now_time = new Date().getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+	// Time calculations for days, hours, minutes and seconds
+	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+	// Display the result in the element with id="demo"
+	document.getElementById("demo").innerHTML = "<h1>"+days+"<span> D</span> "+hours+"<span> H</span> "+minutes+"<span> M</span> "+seconds+"<span> S</span></h1>";
+
+	// If the count down is finished, write some text
+	if (distance < 0) {
+		clearInterval(x);
+		// document.getElementById("demo").innerHTML = "EXPIRED";
+    location.href = '/';
+	}
+}, 1000);
+
+/*
+var date = new Date();
+
+// add a day
+date.setDate(date.getDate() + 1);
+
+*/
+
+</script>
+
+
+
+
 <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </body>

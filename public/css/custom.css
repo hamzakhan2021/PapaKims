@@ -31,7 +31,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   color: #212529;
-  background-color: #fff;
+  background-color: #f4b6c1;
 }
 
 a {
@@ -69,9 +69,6 @@ p,span{
   color: #13214e;
 }
 
-.bg-custom{
-	background-color: #f4b6c1;
-}
 
 input{
 	background-color: transparent !important;
@@ -211,12 +208,19 @@ button:focus {
 }
 
   .site-logo img{
-   width: 17%;
+   width: 20%;
+ }
+
+
+@media only screen and (min-width: 547px) and (max-width: 768px) {
+    .site-logo img{
+   width: 35%;
+ }
  }
 
  @media (max-width: 547px){
   .site-logo img {
-    width: 30% !important;
+    width: 100% !important;
     display: block;
     margin: 0 auto;
   }
@@ -246,7 +250,7 @@ button:focus {
 
 ***/
 .one img{
-	width: 30%;
+	width: 50%;
 }
 
 

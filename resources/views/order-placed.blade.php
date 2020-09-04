@@ -35,8 +35,14 @@
           <header class="text-center mt-4">
             <h3>order placed</h3>
           </header>
-
+          @if (isset($message))
+          <div class="alert alert-success">
+             <button type="button" class="close" data-dismiss="alert">×</button>
+             <strong>{{ $message }}</strong>
+           </div>
+           @endif
           <div class="row justify-content-center text-center">
+
             <div class="col-lg-4">
 
               <div class="delivery-away border">
@@ -46,16 +52,20 @@
               </div>
               <h4 class="mt-2">send free noods</h4>
               <h5 class="mb-3">while you wait</h5>
-              <form action="" class="contact-form ml-4 mr-4">
+              <form  method="POST" action="{{ ('/inviteFriend') }}" class="contact-form ml-4 mr-4">
+                @csrf
                 <div class="row">
+
                   <div class="form-group col-lg-12">
                     <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow">
                   </div>
                   <div class="form-group col-lg-12">
                     <input id="firstName" type="text" name="firstname" placeholder="FIRST NAME" class="form-control border shadow">
                   </div>
+                    <button type="submit" class="px-5 shadow-dark"> <i class="fas fa-paper-plane"></i></button>
+
                 </div>
-              </form>
+</form>
 
               <p class="mb-3">your friend will receive <br> 1x any noodle</p>
 

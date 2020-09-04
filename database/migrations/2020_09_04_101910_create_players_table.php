@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostalCodesTable extends Migration
+class CreatePlayersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreatePostalCodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('postal_codes', function (Blueprint $table) {
+        Schema::create('players', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
+            $table->string('number');
+            $table->string('score');
             $table->string('status');
             $table->timestamps();
         });
@@ -28,6 +29,6 @@ class CreatePostalCodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('postal_codes');
+        Schema::dropIfExists('players');
     }
 }
