@@ -89,7 +89,6 @@
                         </div>
 
                     @endif
-
                  <form role="form" action="{{ route('stripe.post') }}" method="post" class="require-validation"
 
                                                      data-cc-on-file="false"
@@ -99,7 +98,7 @@
                                                     id="payment-form">
 
                         @csrf
-
+												<input name="orderDetails" type="hidden" value="{{$storeOrder}}">
 
 
                         <div class='form-row row'>

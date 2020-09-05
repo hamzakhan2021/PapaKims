@@ -45,7 +45,12 @@
   <div class="container custom-margin text-center">
     <div class="row justify-content-center">
      <div class="col-lg-4">
-
+       @if (isset($invalidPost))
+       <div class="alert alert-success text-center">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <strong>{{ $invalidPost }}</strong>
+        </div>
+        @endif
        <img src="img/logo.png" alt="logo Img" class="img-fluid d-block mx-auto">
 
        <h2 class="pt-4">welcome</h2>

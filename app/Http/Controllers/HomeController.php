@@ -87,10 +87,10 @@ class HomeController extends Controller
       $storeOrder->food_item  = $food;
       $storeOrder->name       = $firstname;
       $storeOrder->number     = $number;
-      $storeOrder->status     = '0';
+      $storeOrder->status     = 0;
       $storeOrder->save();
 
-      return View('order-placed');//stripe
+      return View('stripe', compact('storeOrder'));//stripe
     }
 
     public function sendFriend(Request $request)
@@ -113,12 +113,13 @@ class HomeController extends Controller
     {
       $postalCode = $request->input('post-code');
 
-      // $postCode = PostalCode::where('code', $postalCode)->first();
-      //
-      // if($postCode == null){
-      //   $invalidPost = "Sorry, we do not deliever in this area"
-      //     return View('welcomeIndex', compact('foodName'));
-      // }
+      $postCode = PostalCode::where('code', $postalCode)->first();
+
+      if($postCode == null){
+        $invalidPost = "Sorry, we do not deliever in this area";
+        return View('welcomeIndex', compact('invalidPost'));
+          // return View('welcomeIndex', compact('invalidPost'));
+      }
 
       return View('choose-food');
     }

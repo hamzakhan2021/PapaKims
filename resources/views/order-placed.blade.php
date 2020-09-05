@@ -35,14 +35,16 @@
           <header class="text-center mt-4">
             <h3>order placed</h3>
           </header>
-          @if (Session::has('success'))
+          @if (!isset($message))
+            @if (Session::has('success'))
               <div class="alert alert-success text-center">
                   <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
                   <p>{{ Session::get('success') }}</p>
               </div>
+              @endif
           @endif
           @if (isset($message))
-          <div class="alert alert-success">
+          <div class="alert alert-success text-center">
              <button type="button" class="close" data-dismiss="alert">×</button>
              <strong>{{ $message }}</strong>
            </div>

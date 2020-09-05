@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use Stripe;
+use App\Traits\Order;
 
 class StripePaymentController extends Controller
 {
+  use Order;
     /**
      * success response method.
      *
@@ -34,6 +36,11 @@ class StripePaymentController extends Controller
         ]);
 
         Session::flash('success', 'Payment successful!');
+
+        $objectData   = $request->input('orderDetails');
+        $arrayData    = json_decode(json_encode($objectData),true);
+        $arrayData    = json_decode($arrayData);
+        $this->getPaymentStatus($arrayData);
 
         return view('order-placed');
     }
