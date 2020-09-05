@@ -35,6 +35,12 @@
           <header class="text-center mt-4">
             <h3>order placed</h3>
           </header>
+          @if (Session::has('success'))
+              <div class="alert alert-success text-center">
+                  <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                  <p>{{ Session::get('success') }}</p>
+              </div>
+          @endif
           @if (isset($message))
           <div class="alert alert-success">
              <button type="button" class="close" data-dismiss="alert">×</button>

@@ -59,6 +59,13 @@
 
  <section class="bg-center">
    <div class="d-flex h-100 align-items-center">
+     @if (isset($message))
+     <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">×</button>
+        <strong>{{ $message }}</strong>
+      </div>
+      @endif
+
     <div class="container custom-margin text-center">
       <div class="row justify-content-center">
        <div class="col-lg-4">
@@ -66,7 +73,12 @@
         <div class="time-est border shadow" id="demo">
 <!--          <h1>1<span> HR</span> 53<span> Mins</span></h1>
  -->       </div>
-
+ @if (isset($messageUserLimit))
+ <div class="alert alert-success">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>{{ $messageUserLimit }}</strong>
+  </div>
+  @endif
        <h4 class="mt-2 mb-2">in the meantime...</h4>
 
        <div class="border shadow">
@@ -74,7 +86,7 @@
          <h4>enter phone <br> number to play</h4>
          <h5>(so you know if <br> you've won)</h5>
          <!-- method="POST" action="{{ ('/play') }}" -->
-         <form >
+         <form method="POST" action="{{ ('/play') }}">
            @csrf
            <div class="form-group">
             <input type="text" name="phone_number" class="custom-border form-control">

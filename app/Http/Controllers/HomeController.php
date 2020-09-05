@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Friend;
 use App\FoodOrder;
+use App\Player;
+use App\PostalCode;
 
 class HomeController extends Controller
 {
@@ -31,11 +33,12 @@ class HomeController extends Controller
       $weekday = $weekMap[$dayOfTheWeek];
       if($weekday == 'WE' || $weekday == 'TH' || $weekday == 'FR' || $weekday == 'SA' || $weekday == 'SU')
       {
-        $start = '03:00:00';
-        $end   = '11:00:00';
+        $start = '09:00:00';
+        $end   = '20:00:00';
         $now   = Carbon::now();
+
         $time  = $now->format('H:i:s');
-      //  dd($time);
+
         if ($time >= $start && $time <= $end) {
             return View('welcomeIndex');
         } else {
@@ -46,9 +49,30 @@ class HomeController extends Controller
       }
     }
 
+    public function getScore(Request $request)
+    {
+      $score        = $request->input('score');
+      $playerNumber = $request->input('number1');
+
+      $player = new Player();
+      $player->number = $playerNumber;
+      $player->score  = $score;
+      $player->status = 1;
+      $player->save();
+
+      return 0;
+    }
+
     public function getPlayerNumber(Request $request)
     {
         $number = $request->input('phone_number');
+
+        $check = Player::where('number',$number)->whereDate('created_at', Carbon::today())->get();
+
+        if(count($check) > 0){
+          $messageUserLimit = "You have played for today, please come again tomorrow";
+          return View('index', compact('messageUserLimit'));
+        }
 
         return View('snake', compact('number'));
     }
@@ -63,9 +87,10 @@ class HomeController extends Controller
       $storeOrder->food_item  = $food;
       $storeOrder->name       = $firstname;
       $storeOrder->number     = $number;
+      $storeOrder->status     = '0';
       $storeOrder->save();
 
-      return View('order-placed');
+      return View('order-placed');//stripe
     }
 
     public function sendFriend(Request $request)
@@ -88,6 +113,13 @@ class HomeController extends Controller
     {
       $postalCode = $request->input('post-code');
 
+      // $postCode = PostalCode::where('code', $postalCode)->first();
+      //
+      // if($postCode == null){
+      //   $invalidPost = "Sorry, we do not deliever in this area"
+      //     return View('welcomeIndex', compact('foodName'));
+      // }
+
       return View('choose-food');
     }
 
@@ -104,6 +136,5 @@ class HomeController extends Controller
 
       return View('time-pay', compact('food'));
     }
-
 
 }

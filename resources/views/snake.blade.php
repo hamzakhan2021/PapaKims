@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title></title>
   <style>
   html, body {
@@ -28,11 +29,13 @@
     font-size: 25px;
   }
   </style>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
 <canvas width="400" height="400" id="game"></canvas>
 <h4 class="game-over" id="score"></h4>
 <script>
+
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
 
@@ -41,18 +44,18 @@ var count = 0;
 
 var death = false;
 var score = 0;
-  
+
 var snake = {
   x: 160,
   y: 160,
-  
+
   // snake velocity. moves one grid length every frame in either the x or y direction
   dx: grid,
   dy: 0,
-  
+
   // keep track of all grids the snake body occupies
   cells: [],
-  
+
   // length of the snake. grows when eating an apple
   maxCells: 4
 };
@@ -80,9 +83,36 @@ function loop() {
 		}
 		*/
 		document.getElementById('score').innerHTML = score;
+    if(score > 0){
+    getStoreScore(score);
+    }
+
 		return 0;
 	}
-	
+function getStoreScore(score){
+  var number = "{{$number}}";
+
+  $.ajax({
+    type: "POST",
+    url: '/gameScore',
+    data: { score: score,number1:number, _token: '{{csrf_token()}}' },
+    success: function (data) {
+      alert('Your Score is save winner Will get Free Noodles');
+       window.location='/'
+    },
+    error: function (data, textStatus, errorThrown) {
+        console.log(data);
+
+    },
+});
+//   let data = {element: score};
+// POST("/gameScore", {
+//   method: "POST",
+//   body: JSON.stringify(data)
+// }).then(res => {
+//   console.log("Request complete! response:", res);
+// });
+}
   requestAnimationFrame(loop);
 
   // slow game loop to 15 fps instead of 60 (60/15 = 4)
@@ -104,7 +134,7 @@ function loop() {
   else if (snake.x >= canvas.width) {
     snake.x = 0;
   }
-  
+
   // wrap snake position vertically on edge of screen
   if (snake.y < 0) {
     snake.y = canvas.height - grid;
@@ -128,22 +158,22 @@ function loop() {
   // draw snake one cell at a time
   context.fillStyle = '#f4b6c1';
   snake.cells.forEach(function(cell, index) {
-    
+
     // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
-    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
+    context.fillRect(cell.x, cell.y, grid-1, grid-1);
 
     // snake ate apple
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
 
-      // canvas is 400x400 which is 25x25 grids 
+      // canvas is 400x400 which is 25x25 grids
       apple.x = getRandomInt(0, 25) * grid;
       apple.y = getRandomInt(0, 25) * grid;
     }
 
     // check collision with all cells after this one (modified bubble sort)
     for (var i = index + 1; i < snake.cells.length; i++) {
-      
+
       // snake occupies same space as a body part. reset game
       if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
 		score = snake.cells.length - 4;
@@ -164,11 +194,11 @@ function loop() {
 
 // listen to keyboard events to move the snake
 document.addEventListener('keydown', function(e) {
-  // prevent snake from backtracking on itself by checking that it's 
+  // prevent snake from backtracking on itself by checking that it's
   // not already moving on the same axis (pressing left while moving
   // left won't do anything, and pressing right while moving left
   // shouldn't let you collide with your own body)
-  
+
   // left arrow key
   if (e.which === 37 && snake.dx === 0) {
     snake.dx = -grid;

@@ -23,3 +23,7 @@ Route::get('/summary', 'HomeController@redirectPay');
 Route::post('/OrderPlaced', 'HomeController@storeOrder');
 Route::post('/inviteFriend', 'HomeController@sendFriend');
 Route::post('/play', 'HomeController@getPlayerNumber');
+Route::post('/gameScore', 'HomeController@getScore');
+
+Route::get('stripe', 'StripePaymentController@stripe');
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
