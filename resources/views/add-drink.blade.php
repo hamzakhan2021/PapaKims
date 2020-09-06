@@ -65,8 +65,16 @@
                     <p>fat: 100</p>
                     <p>protein: 100</p>
                     <p>carbs: 100</p>
-                     <button type="submit" onclick="window.location='{{ url("/payTime") }}'" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
+                    <button type="submit" onclick="window.location='{{ url("/payTime") }}'" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
+
                   </div>
+
+                  </form>
+                  <form method="get" action="{{ ('/summarys') }}">
+                    @csrf
+                    <input name="food" type="hidden" value="{{$foodName}}">
+                    <input name="skipDrink" type="hidden" value="skip">
+                   <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark" onclick="window.location='{{ url("/payTime") }}'"> Skip</button>
                   </form>
                 </div>
                 <!-- End bordered tabs -->

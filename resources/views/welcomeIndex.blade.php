@@ -56,10 +56,10 @@
        <h2 class="pt-4">welcome</h2>
        <h4 class="pb-3">can we deliver to you?</h4>
 
-       <form method="POST" action="/p">
+       <form method="POST" action="/chooseFood">
          @csrf
         <div class="form-group">
-          <input id="post-code" type="text" name="post-code" placeholder="ENTER POST CODE" class="form-control border shadow w-auto mx-auto">
+          <input id="post-code" type="text" name="post-code" placeholder="ENTER POST CODE" class="form-control border shadow w-auto mx-auto" required>
         </div>
       </form>
     </div>

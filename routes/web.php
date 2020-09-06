@@ -16,14 +16,16 @@
 // });
 
 Route::get('/', 'HomeController@index');
-Route::post('/p', 'HomeController@getPostalCode');
-Route::post('/cH', 'HomeController@storeFood');
+Route::post('/chooseFood', 'HomeController@getPostalCode');
+// Route::get('chooseFood', 'HomeController@getChooseFoodView');
+Route::post('addDrink', 'HomeController@storeFood')->name('store.food');
 Route::get('/summary', 'HomeController@redirectPay');
 
-Route::post('/OrderPlaced', 'HomeController@storeOrder');
+Route::post('/strip/Payment', 'HomeController@storeOrder')->name('Order.Placed');
 Route::post('/inviteFriend', 'HomeController@sendFriend');
 Route::post('/play', 'HomeController@getPlayerNumber');
 Route::post('/gameScore', 'HomeController@getScore');
+Route::get('/summarys', 'HomeController@redirectPay');
 
-Route::get('stripe', 'StripePaymentController@stripe');
-Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+Route::get('orderPlaced', 'StripePaymentController@stripe');
+Route::post('orderPlaced', 'StripePaymentController@stripePost')->name('stripe.post');

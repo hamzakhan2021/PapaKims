@@ -77,6 +77,11 @@ class HomeController extends Controller
         return View('snake', compact('number'));
     }
 
+    public function getChooseFoodView()
+    {
+      return View('choose-food');
+    }
+
     public function storeOrder(Request $request)
     {
       $food       = $request->input('food');
@@ -133,9 +138,15 @@ class HomeController extends Controller
 
     public function redirectPay(Request $request)
     {
-      $food   = $request->input('food');
-
-      return View('time-pay', compact('food'));
+      $food       = $request->input('food');
+      $skipdrink   = $request->input('skipDrink');
+      $notSkip = "";
+      $notSkipamou = "";
+      if($skipdrink == null){
+        $notSkip = '1x lychee juice';
+        $notSkipamou = '2.00';
+      }
+      return View('time-pay', compact(['food','notSkip','notSkipamou']));
     }
 
 }

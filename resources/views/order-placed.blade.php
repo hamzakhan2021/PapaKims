@@ -65,10 +65,10 @@
                 <div class="row">
 
                   <div class="form-group col-lg-12">
-                    <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow">
+                    <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow" required>
                   </div>
                   <div class="form-group col-lg-12">
-                    <input id="firstName" type="text" name="firstname" placeholder="FIRST NAME" class="form-control border shadow">
+                    <input id="firstName" type="text" name="firstname" placeholder="FIRST NAME" class="form-control border shadow" required>
                   </div>
                     <button type="submit" class="px-5 shadow-dark"> <i class="fas fa-paper-plane"></i></button>
 

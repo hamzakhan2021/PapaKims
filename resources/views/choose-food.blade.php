@@ -60,7 +60,7 @@
                 <div id="myTab1Content" class="tab-content">
 
                   <div id="home1" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade show active px-4 py-3 border shadow mt-5">
-                    <form method="POST" action="{{ ('/cH') }}">
+                    <form method="POST" action="{{ route('store.food') }}">
                       @csrf
                     <p>NOODLES WITH KIMCHI and mushrooms, very tasty.</p>
                     <input name="invisible" type="hidden" value="NOODLES WITH KIMCHI and mushrooms, very tasty">
@@ -75,7 +75,7 @@
 
 
                   <div id="profile1" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-3 border shadow mt-5">
-                    <form method="POST" action="{{ ('/cH') }}">
+                    <form method="POST" action="{{ route('store.food') }}">
                       @csrf
                    <p class="leade">NOODLES WITH MISO and mushrooms, very tasty.</p>
                    <input name="invisible" type="hidden" value="NOODLES WITH MISO and mushrooms, very tasty">
@@ -90,7 +90,7 @@
                 <!-- </form> -->
 
                  <div id="contact1" role="tabpanel" aria-labelledby="contact-tab" class="tab-pane fade px-4 py-3 border shadow mt-5">
-                   <form method="POST" action="{{ ('/cH') }}">
+                   <form method="POST" action="{{ route('store.food') }}">
                      @csrf
                   <p class="leade">NOODLES WITH HAPPY and mushrooms, very tasty.</p>
                     <input name="invisible" type="hidden" value="NOODLES WITH HAPPY and mushrooms, very tasty">

@@ -56,12 +56,13 @@
               <div class="row">
                 <div class="col-lg-12">
                  <div class="column">
-                  <h5> 1x lychee juice</h5>
+                  <h5>{{$notSkip}} </h5>
                 </div>
-
+                @if(isset($notSkipamou))
                 <div class="column-2">
-                  <h5>2.00</h5>
+                  <h5>{{$notSkipamou}}</h5>
                 </div>
+                @endif
               </div>
             </div>
 
@@ -84,7 +85,12 @@
               <h5>total </h5>
             </div>
             <div class="column-2">
+              @if($notSkip == 1)
               <h5>7.70</h5>
+              @endif
+              @if($notSkip == "")
+              <h5>5.70</h5>
+              @endif
             </div>
 
           </div>
@@ -95,14 +101,14 @@
          <h3>please enter</h3>
        </header>
       <div>
-       <form method="POST" action="{{ ('/OrderPlaced') }}">
+       <form method="POST" action="{{ route('Order.Placed') }}">
         @csrf
          <div class="form-group">
           <input name="food" type="hidden" value="{{$food}}">
-          <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow">
+          <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow" required>
         </div>
         <div class="form-group">
-          <input id="firstName" type="text" name="firstname" placeholder="FIRST NAME" class="form-control border shadow">
+          <input id="firstName" type="text" name="firstname" placeholder="FIRST NAME" class="form-control border shadow" required>
         </div>
 
         <button type="submit" class="px-5 shadow-dark"> <i class="fab fa-apple-pay"></i></button>

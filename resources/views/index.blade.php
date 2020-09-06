@@ -89,7 +89,7 @@
          <form method="POST" action="{{ ('/play') }}">
            @csrf
            <div class="form-group">
-            <input type="text" name="phone_number" class="custom-border form-control">
+            <input type="text" name="phone_number" class="custom-border form-control" required>
            </div>
            <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Enter</button>
          </form>
