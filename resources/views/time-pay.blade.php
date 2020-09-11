@@ -38,29 +38,69 @@
           </header>
 
           <div class="row justify-content-center">
-            <div class="col-lg-4">
+            <div class="col-lg-8">
 
               <h5 class="line">order summary</h5>
 
               <div class="row mt-4">
                 <div class="col-lg-12">
-                  <div class="column">
-                    <h5>{{$food}}</h5>
+                  <div class="column">Food
+                    @if(isset($noodle1))
+                    <h5>{{$noodle1}}</h5>
+                    @endif
+                    @if(isset($noodle2))
+                    <h5>{{$noodle2}}</h5>
+                    @endif
+                    @if(isset($noodle3))
+                    <h5>{{$noodle3}}</h5>
+                    @endif
                   </div>
-                  <div class="column-2">
-                    <h5>5.00</h5>
-                  </div>
+
+                  <div class="column-1">Quantity
+                    @if(isset($noodleQuantity1))
+                    <h5>{{$noodleQuantity1}}</h5>
+                    @endif
+                    @if(isset($noodleQuantity2))
+                    <h5>{{$noodleQuantity2}}</h5>
+                    @endif
+                    @if(isset($noodleQuantity3))
+                    <h5>{{$noodleQuantity3}}</h5>
+                    @endif
+                </div>
+
+                <div class="column-3">Price
+                  @if(isset($noodleQuantity1))
+                    <h5>{{$noodleQuantity1 * 5.00}}</h5>
+                  @endif
+                  @if(isset($noodleQuantity2))
+                    <h5>{{$noodleQuantity2 * 5.00}}</h5>
+                  @endif
+                  @if(isset($noodleQuantity3))
+                    <h5>{{$noodleQuantity3 * 5.00}}</h5>
+                  @endif
+                </div>
+
                 </div>
               </div>
 
               <div class="row">
                 <div class="col-lg-12">
                  <div class="column">
-                  <h5>{{$notSkip}} </h5>
+                  <h5>Quantity </h5>
                 </div>
-                @if(isset($notSkipamou))
+                @if(isset($noodleQuantity1))
                 <div class="column-2">
-                  <h5>{{$notSkipamou}}</h5>
+                  <h5>{{$noodleQuantity1}}</h5>
+                </div>
+                @endif
+                @if(isset($noodleQuantity2))
+                <div class="column-2">
+                  <h5>{{$noodleQuantity2}}</h5>
+                </div>
+                @endif
+                @if(isset($noodleQuantity3))
+                <div class="column-2">
+                  <h5>{{$noodleQuantity3}}</h5>
                 </div>
                 @endif
               </div>
@@ -85,12 +125,7 @@
               <h5>total </h5>
             </div>
             <div class="column-2">
-              @if($notSkip == 1)
               <h5>7.70</h5>
-              @endif
-              @if($notSkip == "")
-              <h5>5.70</h5>
-              @endif
             </div>
 
           </div>
@@ -104,7 +139,6 @@
        <form method="POST" action="{{ route('Order.Placed') }}">
         @csrf
          <div class="form-group">
-          <input name="food" type="hidden" value="{{$food}}">
           <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow" required>
         </div>
         <div class="form-group">

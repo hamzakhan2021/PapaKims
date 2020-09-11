@@ -27,7 +27,16 @@
 
       <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
       <link rel="stylesheet" href="style.css" />
-      <script src="script.js"></script>
+      <script src="script.js">
+      document.getElementById("div_two").innerHTML =
+      document.getElementById("div_one").innerHTML;
+
+      $('#name').change(function() {
+          $('#firstname').val($(this).val());
+      });
+      console.log('$('#firstname').val($(this).val());');
+      console.log($('#firstname').val($(this).val()));
+      </script>
 
 
 </head>
@@ -56,49 +65,91 @@
                     <div class="">
                       &nbsp;
                     </div>
-                    <div class="nav nav-tabs nav-pills with-arrow text-center">
-                        <div class="quantity buttons_added">
-                      <input type="button" value="-" class="minus">&nbsp;
-                      <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">&nbsp;
-                      <input type="button" value="+" class="plus">
+                    <div class="row">
+                      <div class="col-12" style="width:100px">
+                        <!-- <div class="nav-item flex-sm-fill"> -->
+                        <form method="POST" action="{{ route('store.food') }}">
+                          @csrf
+                            <div class="quantity buttons_added">
+                          <input type="button" value="-" class="minus">&nbsp;
+                          <input type="number" step="1" min="0" max="" name="quantity1" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">&nbsp;
+                          <input type="button" value="+" class="plus">
+                          </div>
+
+                        <!-- </div> -->
                       </div>
+
                     </div>
+
 
                   </li>
                   <li class="nav-item flex-sm-fill">
                     <a id="profile1-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile1" aria-selected="false" class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 border shadow"><span style="font-size: 25px;">5</span>00<span></span><br> Miso <br>NOODLES</a>
+                    <div class="">
+                      &nbsp;
+                    </div>
+                    <div class="row">
+                      <div class="col-12" style="width:100px">
+                        <!-- <div class="nav-item flex-sm-fill"> -->
+                            <div class="quantity buttons_added">
+                          <input type="button" value="-" class="minus">&nbsp;
+                          <input type="number" step="1" min="0" max="" name="quantity2" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">&nbsp;
+                          <input type="button" value="+" class="plus">
+                          </div>
+                        <!-- </div> -->
+                      </div>
+
+                    </div>
                   </li>
                   <li class="nav-item flex-sm-fill">
                     <a id="contact1-tab" data-toggle="tab" href="#contact1" role="tab" aria-controls="contact1" aria-selected="false" class="nav-link text-uppercase font-weight-bold rounded-0 border shadow"><span style="font-size: 25px;">5</span>00<span></span><br> happy <br>NOODLES</a>
+                    <div class="">
+                      &nbsp;
+                    </div>
+                    <div class="row">
+                      <div class="col-12" style="width:100px">
+                        <!-- <div class="nav-item flex-sm-fill"> -->
+                            <div class="quantity buttons_added">
+                          <input type="button" value="-" class="minus">&nbsp;
+                          <input type="number" step="1" min="0" max="" name="quantity3" value="0" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">&nbsp;
+                          <input type="button" value="+" class="plus">
+                          </div>
+                        <!-- </div> -->
+                      </div>
+
+                    </div>
                   </li>
                 </ul>
 
                 <div id="myTab1Content" class="tab-content">
 
+
                   <div id="home1" role="tabpanel" aria-labelledby="home-tab" class="tab-pane fade show active px-4 py-3 border shadow mt-5">
-                    <form method="POST" action="{{ route('store.food') }}">
-                      @csrf
+                    <!-- <form method="POST" action="{{ route('store.food') }}">
+                      @csrf -->
+
                     <p>NOODLES WITH KIMCHI and mushrooms, very tasty.</p>
                     <input name="invisible" type="hidden" value="NOODLES WITH KIMCHI and mushrooms, very tasty">
+                    <!-- <input name="quantity" id="firstname" type="hidden"> -->
                     <p> Nutritional information:</p>
                     <p>calories: 100</p>
                     <p>fat: 100</p>
                     <p>protein: 100</p>
                     <p>carbs: 100</p>
-                    <div class="row" style="float:right">
+                    <!-- <div class="row" style="float:right">
                       <div class="quantity buttons_added">
    <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
   </div>
-                    </div>
+                    </div> -->
 
-                    <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
-                    </form>
+                    <!-- <button type="submit" onclick = "show&#95;update('1')" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button> -->
+                    <!-- </form> -->
                   </div>
 
 
                   <div id="profile1" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-3 border shadow mt-5">
-                    <form method="POST" action="{{ route('store.food') }}">
-                      @csrf
+                    <!-- <form method="POST" action="{{ route('store.food') }}">
+                      @csrf -->
                    <p class="leade">NOODLES WITH MISO and mushrooms, very tasty.....</p>
                    <input name="invisible" type="hidden" value="NOODLES WITH MISO and mushrooms, very tasty">
                    <p> Nutritional information:</p>
@@ -106,19 +157,15 @@
                    <p>fat: 100</p>
                    <p>protein: 100</p>
                    <p>carbs: 100</p>
-                   <div class="row" style="float:right">
-                     <div class="quantity buttons_added">
-  <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
- </div>
-                   </div>
-                   <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
-                   </form>
+
+                   <!-- <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button> -->
+                   <!-- </form> -->
                  </div>
                 <!-- </form> -->
 
                  <div id="contact1" role="tabpanel" aria-labelledby="contact-tab" class="tab-pane fade px-4 py-3 border shadow mt-5">
-                   <form method="POST" action="{{ route('store.food') }}">
-                     @csrf
+                   <!-- <form method="POST" action="{{ route('store.food') }}">
+                     @csrf -->
                   <p class="leade">NOODLES WITH HAPPY and mushrooms, very tasty.</p>
                     <input name="invisible" type="hidden" value="NOODLES WITH HAPPY and mushrooms, very tasty">
                   <p> Nutritional information:</p>
@@ -126,18 +173,15 @@
                   <p>fat: 100</p>
                   <p>protein: 100</p>
                   <p>carbs: 100</p>
-                  <div class="row" style="float:right">
-                    <div class="quantity buttons_added">
- <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-</div>
-                  </div>
-                  <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
-                  </form>
+
+                  <!-- <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button> -->
+
                 </div>
 
               </div>
-
+  <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
               <!-- End bordered tabs -->
+                </form>
             </div>
 
           </div>

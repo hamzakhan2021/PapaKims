@@ -37,9 +37,9 @@
           </header>
           <div class="row text-center">
 
-            <div class="col-lg-6 col-md-6 mb-4 drink">
+            <!-- <div class="col-lg-6 col-md-6 mb-4 drink">
              <img src="img/drink.png" alt="Food Image" class="img-fluid">
-           </div>
+           </div> -->
            <div class="col-lg-6 col-md-6 mb-4">
 
              <div class="container">

@@ -16,6 +16,15 @@
 .container{
   width: 9000px !important;
 }
+.minus{
+width: 50px !important;
+}
+.plus{
+width: 50px !important;
+}
+.qty{
+width: 199px !important;
+}
 section {
   position: relative;
   /*padding: 6rem 0;*/

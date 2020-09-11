@@ -18,7 +18,7 @@
 Route::get('/', 'HomeController@index');
 Route::post('/chooseFood', 'HomeController@getPostalCode');
 // Route::get('chooseFood', 'HomeController@getChooseFoodView');
-Route::post('addDrink', 'HomeController@storeFood')->name('store.food');
+Route::post('/order', 'HomeController@storeFood')->name('store.food');
 Route::get('/summary', 'HomeController@redirectPay');
 
 Route::post('/strip/Payment', 'HomeController@storeOrder')->name('Order.Placed');

@@ -131,10 +131,30 @@ class HomeController extends Controller
 
     public function storeFood(Request $request)
     {
-      $foodName = $request->input('invisible');
-      $quantity = $request->input('quantity');
+      $quantity1 = $request->input('quantity1');
+      $quantity2 = $request->input('quantity2');
+      $quantity3 = $request->input('quantity3');
 
-      return View('add-drink', compact(['foodName','quantity']));
+      $noodle1 = '';
+      $noodle2 = '';
+      $noodle3 = '';
+      $noodleQuantity1 = '';
+      $noodleQuantity2 = '';
+      $noodleQuantity3 = '';
+      if(isset($quantity1) && $quantity1 > 0){
+        $noodle1            = 'NOODLES WITH KIMCHI and mushrooms, very tasty';
+        $noodleQuantity1    = $quantity1;
+      }
+      if(isset($quantity2) && $quantity2 > 0){
+        $noodle2 = 'NOODLES WITH MISO and mushrooms, very tasty';
+        $noodleQuantity2    = $quantity2;
+      }
+      if(isset($quantity3) && $quantity3 > 0){
+        $noodle3            = 'NOODLES WITH HAPPY and mushrooms, very tasty';
+        $noodleQuantity3    = $quantity3;
+      }
+
+      return View('time-pay', compact(['noodle1','noodleQuantity1','noodle2','noodleQuantity2','noodle3','noodleQuantity3']));
     }
 
     public function redirectPay(Request $request)
