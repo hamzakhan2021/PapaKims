@@ -17,7 +17,19 @@ section {
   position: relative;
   /*padding: 6rem 0;*/
 }
-
+#myform11 {
+    text-align: center;
+    padding: 5px;
+    border: 1px dotted #ccc;
+    margin: 2%;
+}
+.qty {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+}
+input.qtyplus { width:25px; height:25px;}
+input.qtyminus { width:25px; height:25px;}
 .hero {
   background: url(../img/macbook-juice.jpg);
   min-height: 100vh;

@@ -33,7 +33,7 @@ class HomeController extends Controller
       $weekday = $weekMap[$dayOfTheWeek];
       if($weekday == 'WE' || $weekday == 'TH' || $weekday == 'FR' || $weekday == 'SA' || $weekday == 'SU')
       {
-        $start = '09:00:00';
+        $start = '01:00:00';
         $end   = '20:00:00';
         $now   = Carbon::now();
 
@@ -132,8 +132,9 @@ class HomeController extends Controller
     public function storeFood(Request $request)
     {
       $foodName = $request->input('invisible');
+      $quantity = $request->input('quantity');
 
-      return View('add-drink', compact('foodName'));
+      return View('add-drink', compact(['foodName','quantity']));
     }
 
     public function redirectPay(Request $request)

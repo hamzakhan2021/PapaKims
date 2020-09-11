@@ -65,6 +65,10 @@
                     <p>fat: 100</p>
                     <p>protein: 100</p>
                     <p>carbs: 100</p>
+                    <p>
+  <h5>Quantity</h5><p class="leade">: {{$quantity}}</p>
+                    </p>
+
                     <button type="submit" onclick="window.location='{{ url("/payTime") }}'" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
 
                   </div>

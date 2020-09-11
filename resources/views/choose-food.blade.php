@@ -25,6 +25,11 @@
   <!-- Favicon-->
   <link rel="shortcut icon" href="favicon.png">
 
+      <script data-require="jquery@3.1.1" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="style.css" />
+      <script src="script.js"></script>
+
+
 </head>
 <body>
   <div class="main">
@@ -69,6 +74,12 @@
                     <p>fat: 100</p>
                     <p>protein: 100</p>
                     <p>carbs: 100</p>
+                    <div class="row" style="float:right">
+                      <div class="quantity buttons_added">
+   <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+  </div>
+                    </div>
+
                     <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
                     </form>
                   </div>
@@ -84,6 +95,11 @@
                    <p>fat: 100</p>
                    <p>protein: 100</p>
                    <p>carbs: 100</p>
+                   <div class="row" style="float:right">
+                     <div class="quantity buttons_added">
+  <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+ </div>
+                   </div>
                    <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
                    </form>
                  </div>
@@ -99,6 +115,11 @@
                   <p>fat: 100</p>
                   <p>protein: 100</p>
                   <p>carbs: 100</p>
+                  <div class="row" style="float:right">
+                    <div class="quantity buttons_added">
+ <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+</div>
+                  </div>
                   <button type="submit" class="px-4 mt-2 ltr-spacing shadow-dark"> Order</button>
                   </form>
                 </div>
@@ -118,7 +139,8 @@
 
 </div>
 <!-- JavaScript files-->
-<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/jquery/jquery.min.js">
+</script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/onepage-scroll/jquery.onepage-scroll.min.js"></script>
 <script src="vendor/lightbox2/js/lightbox.min.js"></script>
