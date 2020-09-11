@@ -13,6 +13,9 @@
 * =====================
 *
 */
+.container{
+  width: 9000px !important;
+}
 section {
   position: relative;
   /*padding: 6rem 0;*/

@@ -42,9 +42,9 @@
           </header>
           <div class="row text-center">
 
-            <div class="col-lg-6 col-md-6 mb-4">
+            <!-- <div class="col-lg-6 col-md-6 mb-4">
              <img src="img/food.png" alt="Food Image" class="img-fluid">
-           </div>
+           </div> -->
            <div class="col-lg-6 col-md-6 mb-4">
 
             <div class="container">
@@ -53,6 +53,17 @@
                 <ul id="myTab1" role="tablist" class="nav nav-tabs nav-pills with-arrow text-center">
                   <li class="nav-item flex-sm-fill">
                     <a id="home1-tab" data-toggle="tab" href="#home1" role="tab" aria-controls="home1" aria-selected="true" class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 border shadow active"><span style="font-size: 25px;">5</span>00<span></span><br> KIMCHI <br>NOODLES</a>
+                    <div class="">
+                      &nbsp;
+                    </div>
+                    <div class="nav nav-tabs nav-pills with-arrow text-center">
+                        <div class="quantity buttons_added">
+                      <input type="button" value="-" class="minus">&nbsp;
+                      <input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">&nbsp;
+                      <input type="button" value="+" class="plus">
+                      </div>
+                    </div>
+
                   </li>
                   <li class="nav-item flex-sm-fill">
                     <a id="profile1-tab" data-toggle="tab" href="#profile1" role="tab" aria-controls="profile1" aria-selected="false" class="nav-link text-uppercase font-weight-bold mr-sm-3 rounded-0 border shadow"><span style="font-size: 25px;">5</span>00<span></span><br> Miso <br>NOODLES</a>
@@ -88,7 +99,7 @@
                   <div id="profile1" role="tabpanel" aria-labelledby="profile-tab" class="tab-pane fade px-4 py-3 border shadow mt-5">
                     <form method="POST" action="{{ route('store.food') }}">
                       @csrf
-                   <p class="leade">NOODLES WITH MISO and mushrooms, very tasty.</p>
+                   <p class="leade">NOODLES WITH MISO and mushrooms, very tasty.....</p>
                    <input name="invisible" type="hidden" value="NOODLES WITH MISO and mushrooms, very tasty">
                    <p> Nutritional information:</p>
                    <p>calories: 100</p>
