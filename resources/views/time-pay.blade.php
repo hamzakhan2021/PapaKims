@@ -30,109 +30,85 @@
   <div class="main">
 
     <section class="bg-custom">
-      <div class="d-flex h-100 align-items-center">
+      <div class="d-flex h-90 align-items-center">
         <div class="container custom-margin">
 
-          <header class="text-center mb-5">
+          <header class="text-center mt-20 mb-20">
             <h3>time to pay</h3>
           </header>
 
           <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
 
-              <h5 class="line">order summary</h5>
+              <h5 class="">order summary</h5>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col"><p>Noodles</p></th>
+                      <th scope="col"><p>Quantity</p></th>
+                      <th scope="col"><p>Price</p></th>
 
-              <div class="row mt-4">
-                <div class="col-lg-12">
-                  <div class="column">Food
-                    @if(isset($noodle1))
-                    <h5>{{$noodle1}}</h5>
-                    @endif
-                    @if(isset($noodle2))
-                    <h5>{{$noodle2}}</h5>
-                    @endif
-                    @if(isset($noodle3))
-                    <h5>{{$noodle3}}</h5>
-                    @endif
-                  </div>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
 
-                  <div class="column-1">Quantity
-                    @if(isset($noodleQuantity1))
-                    <h5>{{$noodleQuantity1}}</h5>
-                    @endif
-                    @if(isset($noodleQuantity2))
-                    <h5>{{$noodleQuantity2}}</h5>
-                    @endif
-                    @if(isset($noodleQuantity3))
-                    <h5>{{$noodleQuantity3}}</h5>
-                    @endif
-                </div>
+                      @if(isset($noodle1))
+                      <th scope="row"><p>{{$noodle1}}</p></th>
+                      @endif
 
-                <div class="column-3">Price
-                  @if(isset($noodleQuantity1))
-                    <h5>{{$noodleQuantity1 * 5.00}}</h5>
-                  @endif
-                  @if(isset($noodleQuantity2))
-                    <h5>{{$noodleQuantity2 * 5.00}}</h5>
-                  @endif
-                  @if(isset($noodleQuantity3))
-                    <h5>{{$noodleQuantity3 * 5.00}}</h5>
-                  @endif
-                </div>
+                      @if(isset($noodleQuantity1))
+                      <td><p>{{$noodleQuantity1}}</p></td>
+                      @endif
 
-                </div>
+                      @if(isset($noodleQuantity1))
+                      <td><p>{{$noodleQuantity1 * 5.00}}.00</p></td>
+                      @endif
+                    </tr>
+                    <tr>
+                      @if(isset($noodle2))
+                      <th scope="row"><p>{{$noodle2}}</p></th>
+                      @endif
+                      @if(isset($noodleQuantity2))
+                      <td><p>{{$noodleQuantity2}}</p></td>
+                      @endif
+
+                      @if(isset($noodleQuantity2))
+                      <td><p>{{$noodleQuantity2 * 5.00}}.00</p></td>
+                      @endif
+
+                    </tr>
+                    <tr>
+
+                      @if(isset($noodle3))
+                      <th scope="row"><p>{{$noodle3}}</p></th>
+                      @endif
+                      @if(isset($noodleQuantity3))
+                      <td><p>{{$noodleQuantity3}}</p></td>
+                      @endif
+
+                      @if(isset($noodleQuantity3))
+                      <td><p>{{$noodleQuantity3 * 5.00}}.00</p></td>
+                      @endif
+                    </tr>
+                    <tr>
+                      <th scope="row"><p>delivery fee</p></th>
+                      <td></td>
+                      <td><p>0.7</p></td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row"><p>total</p></th>
+                      <td></td>
+                      <td><p>{{($noodleQuantity1+$noodleQuantity2+$noodleQuantity3)*5.00+0.70}}</p></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
+              <!-- table end -->
 
-              <div class="row">
-                <div class="col-lg-12">
-                 <div class="column">
-                  <h5>Quantity </h5>
-                </div>
-                @if(isset($noodleQuantity1))
-                <div class="column-2">
-                  <h5>{{$noodleQuantity1}}</h5>
-                </div>
-                @endif
-                @if(isset($noodleQuantity2))
-                <div class="column-2">
-                  <h5>{{$noodleQuantity2}}</h5>
-                </div>
-                @endif
-                @if(isset($noodleQuantity3))
-                <div class="column-2">
-                  <h5>{{$noodleQuantity3}}</h5>
-                </div>
-                @endif
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-12">
-               <div class="column">
-                <h5>delivery fee </h5>
-              </div>
-              <div class="column-2">
-                <h5>0.70</h5>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mt-4">
-            <div class="col-lg-12">
-
-
-             <div class="column">
-              <h5>total </h5>
-            </div>
-            <div class="column-2">
-              <h5>7.70</h5>
-            </div>
-
-          </div>
-          <div class="line-2"></div>
-        </div>
-
-        <header class="text-center mt-5 mb-5">
+        <header class="text-center mt-10 mb-10">
          <h3>please enter</h3>
        </header>
       <div>
@@ -140,6 +116,12 @@
         @csrf
          <div class="form-group">
           <input id="number" type="number" name="number" placeholder="PHONE NUMBER" class="form-control border shadow" required>
+          <input name="noodleQuantity1" type="hidden" value="{{$noodleQuantity1}}">
+          <input name="noodle1" type="hidden" value="{{$noodle1}}">
+          <input name="noodleQuantity2" type="hidden" value="{{$noodleQuantity2}}">
+          <input name="noodle2" type="hidden" value="{{$noodle2}}">
+          <input name="noodleQuantity3" type="hidden" value="{{$noodleQuantity3}}">
+          <input name="noodle3" type="hidden" value="{{$noodle3}}">
         </div>
         <div class="form-group">
           <input id="firstName" type="text" name="firstname" placeholder="FIRST NAME" class="form-control border shadow" required>

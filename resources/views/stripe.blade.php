@@ -98,7 +98,7 @@
                                                     id="payment-form">
 
                         @csrf
-												<input name="orderDetails" type="hidden" value="{{$storeOrder}}">
+												<input name="orderDetails" type="hidden" value="{{$storeCust}}">
 
 
                         <div class='form-row row'>
@@ -185,7 +185,7 @@
 
                             <div class="col-xs-12">
 
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">(${{$total}})Pay Now</button>
 
                             </div>
 

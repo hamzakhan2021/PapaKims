@@ -8,6 +8,7 @@ use App\Friend;
 use App\FoodOrder;
 use App\Player;
 use App\PostalCode;
+use App\Order;
 
 class HomeController extends Controller
 {
@@ -84,18 +85,53 @@ class HomeController extends Controller
 
     public function storeOrder(Request $request)
     {
-      $food       = $request->input('food');
-      $number     = $request->input('number');
-      $firstname  = $request->input('firstname');
+      $noodle1                  = $request->input('noodle1');
+      $noodleQuantity1          = $request->input('noodleQuantity1');
+      $noodle2                  = $request->input('noodle2');
+      $noodleQuantity2          = $request->input('noodleQuantity2');
+      $noodle3                  = $request->input('noodle3');
+      $noodleQuantity3          = $request->input('noodleQuantity3');
+      $number                   = $request->input('number');
+      $firstname                = $request->input('firstname');
 
-      $storeOrder = new FoodOrder();
-      $storeOrder->food_item  = $food;
-      $storeOrder->name       = $firstname;
-      $storeOrder->number     = $number;
-      $storeOrder->status     = 0;
-      $storeOrder->save();
+      $total = 0;
+      $storeCust = new FoodOrder();
+      $storeCust->name       = $firstname;
+      $storeCust->number     = $number;
+      $storeCust->status     = 0;
+      $storeCust->save();
 
-      return View('stripe', compact('storeOrder'));//stripe
+      if($noodle1 != null){
+        $order = new Order();
+        $order->cust_id     = $storeCust->id;
+        $order->food        = $noodle1;
+        $order->quantity    = $noodleQuantity1;
+        $order->unit_price  = $noodleQuantity1*5.00;
+        $order->save();
+        $total = $noodleQuantity1 + $total;
+      }
+      if($noodle2 != null){
+        $order = new Order();
+        $order->cust_id     = $storeCust->id;
+        $order->food        = $noodle2;
+        $order->quantity    = $noodleQuantity2;
+        $order->unit_price  = $noodleQuantity2*5.00;
+        $order->save();
+        $total = $noodleQuantity2 + $total;
+      }
+      if($noodle2 != null){
+        $order = new Order();
+        $order->cust_id     = $storeCust->id;
+        $order->food        = $noodle2;
+        $order->quantity    = $noodleQuantity2;
+        $order->unit_price  = $noodleQuantity2*5.00;
+        $order->save();
+        $total = $noodleQuantity3 + $total;
+      }
+
+      $total = $total * 5.00 + 0.7;
+    //  dd($total);
+      return View('stripe', compact(['storeCust','total']));//stripe
     }
 
     public function sendFriend(Request $request)
@@ -135,12 +171,12 @@ class HomeController extends Controller
       $quantity2 = $request->input('quantity2');
       $quantity3 = $request->input('quantity3');
 
-      $noodle1 = '';
-      $noodle2 = '';
-      $noodle3 = '';
-      $noodleQuantity1 = '';
-      $noodleQuantity2 = '';
-      $noodleQuantity3 = '';
+      $noodle1 = null;
+      $noodle2 = null;
+      $noodle3 = null;
+      $noodleQuantity1 = null;
+      $noodleQuantity2 = null;
+      $noodleQuantity3 = null;
       if(isset($quantity1) && $quantity1 > 0){
         $noodle1            = 'NOODLES WITH KIMCHI and mushrooms, very tasty';
         $noodleQuantity1    = $quantity1;
