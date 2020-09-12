@@ -13,6 +13,15 @@
 * =====================
 *
 */
+.choose-food, .add-drink {
+    /* padding: 1rem !important; */
+    /* width: 80%  !important; */
+    /* right-margin: 500px !important; */
+    /* float: center  !important; */
+}
+.one img {
+    width: 90% !important;
+}
 .container{
   width: 9000px !important;
 }

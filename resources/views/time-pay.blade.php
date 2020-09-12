@@ -126,6 +126,12 @@
         <div class="form-group">
           <input id="firstName" type="text" name="firstname" placeholder="FIRST NAME" class="form-control border shadow" required>
         </div>
+        <div class="form-group">
+        <input type="text" class="form-control" name="address" id="inputAddress2MD" placeholder="Address">
+        </div>
+        <!-- <div class="form-group">
+          <textarea type="text" name="firstname" placeholder="address" class="form-control border shadow" required></textarea>
+        </div> -->
 
         <button type="submit" class="px-5 shadow-dark"> <i class="fab fa-apple-pay"></i></button>
       </form>

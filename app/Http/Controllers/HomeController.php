@@ -35,7 +35,7 @@ class HomeController extends Controller
       if($weekday == 'WE' || $weekday == 'TH' || $weekday == 'FR' || $weekday == 'SA' || $weekday == 'SU')
       {
         $start = '01:00:00';
-        $end   = '20:00:00';
+        $end   = '24:00:00';
         $now   = Carbon::now();
 
         $time  = $now->format('H:i:s');
@@ -93,11 +93,13 @@ class HomeController extends Controller
       $noodleQuantity3          = $request->input('noodleQuantity3');
       $number                   = $request->input('number');
       $firstname                = $request->input('firstname');
+      $address                  = $request->input('address');
 
       $total = 0;
       $storeCust = new FoodOrder();
       $storeCust->name       = $firstname;
       $storeCust->number     = $number;
+      $storeCust->address    = $address;
       $storeCust->status     = 0;
       $storeCust->save();
 
@@ -108,7 +110,7 @@ class HomeController extends Controller
         $order->quantity    = $noodleQuantity1;
         $order->unit_price  = $noodleQuantity1*5.00;
         $order->save();
-        $total = $noodleQuantity1 + $total;
+        $total = ($noodleQuantity1 + $total)*5.00;
       }
       if($noodle2 != null){
         $order = new Order();
@@ -117,20 +119,20 @@ class HomeController extends Controller
         $order->quantity    = $noodleQuantity2;
         $order->unit_price  = $noodleQuantity2*5.00;
         $order->save();
-        $total = $noodleQuantity2 + $total;
+        $total = ($noodleQuantity2 + $total)*5.00;
       }
-      if($noodle2 != null){
+      if($noodle3 != null){
         $order = new Order();
         $order->cust_id     = $storeCust->id;
-        $order->food        = $noodle2;
-        $order->quantity    = $noodleQuantity2;
-        $order->unit_price  = $noodleQuantity2*5.00;
+        $order->food        = $noodle3;
+        $order->quantity    = $noodleQuantity3;
+        $order->unit_price  = $noodleQuantity3*5.00;
         $order->save();
-        $total = $noodleQuantity3 + $total;
+        $total = ($noodleQuantity3 + $total)*5.00;
       }
 
-      $total = $total * 5.00 + 0.7;
-    //  dd($total);
+       $total = $total + 0.7;
+      // dd($total+0);
       return View('stripe', compact(['storeCust','total']));//stripe
     }
 

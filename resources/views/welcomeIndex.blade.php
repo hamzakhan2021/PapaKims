@@ -41,7 +41,7 @@
      </div>
    </div>
  </div>
- <div class="d-flex h-90 align-items-center">
+ <div class="d-flex h-85 align-items-center">
   <div class="container custom-margin text-center">
     <div class="row justify-content-center">
      <div class="col-lg-4">
@@ -51,7 +51,7 @@
           <strong>{{ $invalidPost }}</strong>
         </div>
         @endif
-       <img src="img/logo.png" alt="logo Img" class="img-fluid d-block mx-auto">
+       <img src="img/logo.png" alt="logo Img" width:"90%" class="img-fluid d-block mx-auto">
 
        <h2 class="pt-4">welcome</h2>
        <h4 class="pb-3">can we deliver to you?</h4>
@@ -61,6 +61,7 @@
         <div class="form-group">
           <input id="post-code" type="text" name="post-code" placeholder="ENTER POST CODE" class="form-control border shadow w-auto mx-auto" required>
         </div>
+        <button type="submit" class="px-5 shadow-dark"> Enter</button>
       </form>
     </div>
   </div>

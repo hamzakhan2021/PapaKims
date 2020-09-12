@@ -185,7 +185,7 @@
 
                             <div class="col-xs-12">
 
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">(${{$total}})Pay Now</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now &nbsp;(${{$total}})</button>
 
                             </div>
 

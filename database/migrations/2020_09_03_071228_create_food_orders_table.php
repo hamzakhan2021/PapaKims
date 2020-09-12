@@ -18,6 +18,7 @@ class CreateFoodOrdersTable extends Migration
             $table->string('name');
             $table->string('number');
             $table->string('total')->nullable();
+            $table->string('address')->nullable();
             $table->string('status');
             $table->timestamps();
         });
